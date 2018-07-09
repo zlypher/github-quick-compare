@@ -27,9 +27,9 @@ export default class RepositoryFetcher extends Component  {
         return (
             <section className="repo-fetcher">
                 <div>
-                    <input name="owner" placeholder="owner" value={owner} onChange={this.onHandleOwnerChange} />
+                    <input className="repo-fetcher__input" name="owner" placeholder="owner" value={owner} onChange={this.onHandleOwnerChange} />
                     <span>/</span>
-                    <input name="repo" placeholder="repo" value={repo} onChange={this.onHandleRepoChange} />
+                    <input className="repo-fetcher__input" name="repo" placeholder="repo" value={repo} onChange={this.onHandleRepoChange} />
                 </div>
                 <input type="button" value="Update" onClick={this.onHandleUpdateClick} />
             </section>
