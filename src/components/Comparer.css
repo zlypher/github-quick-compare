@@ -1,41 +1,38 @@
-.comparer {
-
-}
+.comparer {}
 
 .comparer__input {
-    margin-bottom: 32px;
+  margin-bottom: 32px;
 }
 
-.comparer__wrapper {
-}
+.comparer__wrapper {}
 
 .comparer__table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 1rem;
-    background-color: transparent;
-    border-collapse: collapse;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-collapse: collapse;
 }
 
 .comparer__head {
-    vertical-align: bottom;
-    border-bottom: 2px solid #dee2e6;
-    padding: .75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
 }
 
 .comparer__item {
-    padding: .75rem;
-    vertical-align: top;
-    border-top: 1px solid #dee2e6;
+  padding: .75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
 }
 
 .comparer__item--title {
-    font-weight: 600;
-    white-space: nowrap;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .comparer__item--normal {
-    width: 50%;
+  width: 50%;
 }
