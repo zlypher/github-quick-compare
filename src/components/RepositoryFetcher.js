@@ -16,8 +16,7 @@ export default class RepositoryFetcher extends Component  {
             repo: "",
         };
 
-        this.onHandleOwnerChange = this.onHandleOwnerChange.bind(this);
-        this.onHandleRepoChange = this.onHandleRepoChange.bind(this);
+        this.onHandleChange = this.onHandleChange.bind(this);
         this.onHandleUpdateClick = this.onHandleUpdateClick.bind(this);
     }
 
@@ -27,24 +26,18 @@ export default class RepositoryFetcher extends Component  {
         return (
             <section className="repo-fetcher">
                 <div>
-                    <input className="repo-fetcher__input" name="owner" placeholder="owner" value={owner} onChange={this.onHandleOwnerChange} />
+                    <input className="repo-fetcher__input" name="owner" placeholder="owner" value={owner} onChange={this.onHandleChange} />
                     <span>/</span>
-                    <input className="repo-fetcher__input" name="repo" placeholder="repo" value={repo} onChange={this.onHandleRepoChange} />
+                    <input className="repo-fetcher__input" name="repo" placeholder="repo" value={repo} onChange={this.onHandleChange} />
                 </div>
                 <input type="button" value="Update" onClick={this.onHandleUpdateClick} />
             </section>
         );
     }
 
-    onHandleOwnerChange(evt) {
+    onHandleChange(evt) {
         this.setState({
-            owner: evt.target.value,
-        });
-    }
-
-    onHandleRepoChange(evt) {
-        this.setState({
-            repo: evt.target.value,
+            [evt.target.name]: evt.target.value,
         });
     }
 
