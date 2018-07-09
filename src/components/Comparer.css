@@ -1,0 +1,26 @@
+.comparer {
+
+}
+
+.comparer__input {
+    margin-bottom: 32px;
+}
+
+.comparer__wrapper {
+}
+
+.comparer__table {
+    margin: 0 auto;
+}
+
+.comparer__head {
+    background: grey;
+}
+
+.comparer__item--title {
+    font-weight: 600;
+}
+
+.comparer__item--normal {
+    min-width: 100px;
+}
