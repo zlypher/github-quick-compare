@@ -9,12 +9,14 @@ export class Comparer extends Component {
   constructor(props) {
     super(props);
 
+    console.log(props.first);
+
     this.state = {
       first: null,
       second: null,
       input: {
-        first: { owner: "", repo: "" },
-        second: { owner: "", repo: "" },
+        first: props.first || { owner: "", repo: "" },
+        second: props.second || { owner: "", repo: "" },
       },
     };
 
