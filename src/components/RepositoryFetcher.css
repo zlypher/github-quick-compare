@@ -26,8 +26,13 @@
 }
 
 .repo-fetcher__input--left {
-  border-top-right-radius: none;
-  border-bottom-right-radius: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.repo-fetcher__input--right {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .repo-fetcher__separator {
