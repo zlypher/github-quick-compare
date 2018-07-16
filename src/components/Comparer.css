@@ -1,4 +1,7 @@
-.comparer {}
+.comparer {
+  margin: 0 auto;
+  max-width: 800px;
+}
 
 .comparer__input {
   margin-bottom: 32px;

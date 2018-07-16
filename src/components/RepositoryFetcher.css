@@ -1,9 +1,8 @@
-.repo-fetcher {}
-
-.repo-fetcher__wrapper {
+.repo-fetcher {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 16px 0;
 }
 
 .repo-fetcher__input {

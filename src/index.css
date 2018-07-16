@@ -16,3 +16,8 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+h2 {
+  font-size: 18px;
+  margin: 16px 0;
+}

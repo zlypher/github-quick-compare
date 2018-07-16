@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import RepositoryFetcher from "./RepositoryFetcher";
+import { getRepositoryInfo } from "../services/github-service";
 import './Comparer.css';
 
 const dateFormat = new Intl.DateTimeFormat();
@@ -10,21 +11,31 @@ export class Comparer extends Component {
 
     this.state = {
       first: null,
-      second: null
+      second: null,
+      input: {
+        first: { owner: "", repo: "" },
+        second: { owner: "", repo: "" },
+      },
     };
 
-    this.onRepoFetch = this.onRepoFetch.bind(this);
+    this.onFetcherChange = this.onFetcherChange.bind(this);
+    this.onCompareRepositories = this.onCompareRepositories.bind(this);
   }
 
   render() {
-    const { first, second } = this.state;
+    const { first, second, input } = this.state;
 
     return (
       <section className="comparer">
         <h1>Comparer</h1>
         <div className="comparer__input">
-          <RepositoryFetcher onFetch={this.onRepoFetch("first")} />
-          <RepositoryFetcher onFetch={this.onRepoFetch("second")} />
+          <h2>1. Select first repository</h2>
+          <RepositoryFetcher owner={input.first.owner} repo={input.first.repo} onChange={this.onFetcherChange("first")} />
+          <h2>2. Select second repository</h2>
+          <RepositoryFetcher owner={input.second.owner} repo={input.second.repo} onChange={this.onFetcherChange("second")} />
+          <button onClick={this.onCompareRepositories}>
+            3. Compare!
+          </button>
         </div>
         <div className="container comparer__wrapper">
           <table className="comparer__table">
@@ -73,13 +84,31 @@ export class Comparer extends Component {
     );
   }
 
-  onRepoFetch(type) {
-    return (data) => {
-      console.log(data);
+  onFetcherChange(type) {
+    return (field) => (evt) => {
       this.setState({
-        [type]: data,
+        input: {
+          ...this.state.input,
+          [type]: {
+            ...this.state.input[type],
+            [field]: evt.target.value,
+          },
+        },
       });
     }
+  }
+
+  async onCompareRepositories() {
+    const { input } = this.state;
+    const [first, second] = await Promise.all([
+      getRepositoryInfo(input.first.owner, input.first.repo),
+      getRepositoryInfo(input.second.owner, input.second.repo),
+    ]);
+
+    this.setState({
+      first,
+      second,
+    })
   }
 };
 
