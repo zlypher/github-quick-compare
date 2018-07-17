@@ -9,8 +9,6 @@ export class Comparer extends Component {
   constructor(props) {
     super(props);
 
-    console.log(props.first);
-
     this.state = {
       first: null,
       second: null,
@@ -35,7 +33,7 @@ export class Comparer extends Component {
           <RepositoryFetcher owner={input.first.owner} repo={input.first.repo} onChange={this.onFetcherChange("first")} />
           <h2>2. Select second repository</h2>
           <RepositoryFetcher owner={input.second.owner} repo={input.second.repo} onChange={this.onFetcherChange("second")} />
-          <button onClick={this.onCompareRepositories}>
+          <button className="comparer__button" onClick={this.onCompareRepositories}>
             3. Compare!
           </button>
         </div>
