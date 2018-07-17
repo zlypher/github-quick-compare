@@ -41,17 +41,24 @@ export class Comparer extends Component {
           <table className="comparer__table">
             <thead>
               <tr>
-                <th className="comparer__head">{first && first.name}</th>
+                <th className="comparer__head">
+                  {first && (
+                    <a href={first.homepage} target="_blank">
+                      {first.name}
+                    </a>
+                  )}
+                </th>
                 <th className="comparer__item--title comparer__head">Name</th>
-                <th className="comparer__head">{second && second.name}</th>
+                <th className="comparer__head">
+                  {second && (
+                    <a href={second.homepage} target="_blank">
+                      {second.name}
+                    </a>
+                  )}
+                </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="comparer__item comparer__item--normal">{first && first.homepage}</td>
-                <td className="comparer__item comparer__item--title">Homepage</td>
-                <td className="comparer__item comparer__item--normal">{second && second.homepage}</td>
-              </tr>
               <tr>
                 <td className="comparer__item comparer__item--normal">{first && first.stargazers_count}</td>
                 <td className="comparer__item comparer__item--title">Stars</td>
