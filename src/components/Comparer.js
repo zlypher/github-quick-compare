@@ -105,10 +105,17 @@ export class Comparer extends Component {
       getRepositoryInfo(input.second.owner, input.second.repo),
     ]);
 
-    this.setState({
-      first,
-      second,
-    })
+    const newState = {};
+
+    if (first.success) {
+      newState.first = first.data;
+    }
+
+    if (second.success) {
+      newState.second = second.data;
+    }
+
+    this.setState(newState);
   }
 };
 

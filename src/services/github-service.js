@@ -2,5 +2,14 @@ const getRepoUrl = (owner, repo) => `https://api.github.com/repos/${owner}/${rep
 
 export const getRepositoryInfo = async (owner, repo) => {
   const response = await fetch(getRepoUrl(owner, repo));
-  return await response.json();
+  if (!response.ok) {
+    return {
+      success: false,
+    };
+  }
+
+  return {
+    success: true,
+    data: await response.json(),
+  };
 }
