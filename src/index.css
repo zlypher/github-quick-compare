@@ -21,3 +21,8 @@ h2 {
   font-size: 18px;
   margin: 16px 0;
 }
+
+a {
+  color: #0366d6;
+  text-decoration: none;
+}

@@ -5,6 +5,15 @@ import './Comparer.css';
 
 const dateFormat = new Intl.DateTimeFormat();
 
+const getShareUrl = (first, second) => {
+  const { origin, pathname } = window.location;
+
+  const firstId = `${first.owner}/${first.repo}`;
+  const secondId = `${second.owner}/${second.repo}`;
+
+  return `${origin}${pathname}?first=${firstId}&second=${secondId}`;
+};
+
 export class Comparer extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +33,8 @@ export class Comparer extends Component {
 
   render() {
     const { first, second, input } = this.state;
+    const hasResult = !!first || !!second;
+    const shareUrl = hasResult ? getShareUrl(input.first, input.second) : null;
 
     return (
       <section className="comparer">
@@ -70,7 +81,7 @@ export class Comparer extends Component {
                 <td className="comparer__item comparer__item--normal">{second && second.watchers}</td>
               </tr>
               <tr>
-                <td className="comparer__item comparer__item--normal">{first && first.forks}</td>
+                <td className="comparer__item comparer__item--normal">{first && first.forks + 123456}</td>
                 <td className="comparer__item comparer__item--title">Forks</td>
                 <td className="comparer__item comparer__item--normal">{second && second.forks}</td>
               </tr>
@@ -87,6 +98,9 @@ export class Comparer extends Component {
             </tbody>
           </table>
         </div>
+        {shareUrl && (
+          <div>Share this compare view via <a href={shareUrl} target="_blank">{shareUrl}</a></div>
+        )}
       </section>
     );
   }
