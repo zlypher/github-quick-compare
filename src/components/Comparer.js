@@ -59,7 +59,6 @@ export class Comparer extends Component {
 
     return (
       <section className="comparer">
-        <h1>Comparer</h1>
         <div className="comparer__input">
           <h2>1. Select first repository</h2>
           <RepositoryFetcher owner={input.first.owner} repo={input.first.repo} onChange={this.onFetcherChange("first")} />

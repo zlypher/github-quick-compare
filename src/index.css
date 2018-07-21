@@ -17,6 +17,13 @@ body {
   padding: 0 15px;
 }
 
+h1 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1.125;
+  margin: 0;
+}
+
 h2 {
   font-size: 18px;
   margin: 16px 0;

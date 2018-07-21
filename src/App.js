@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { PageHeader } from './components/PageHeader';
 import { Comparer } from './components/Comparer';
 
 const getOwnerRepo = (id) => {
@@ -33,6 +34,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <PageHeader />
         <Comparer first={first} second={second} />
       </div>
     );
