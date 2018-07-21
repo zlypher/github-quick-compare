@@ -14,6 +14,20 @@ const getShareUrl = (first, second) => {
   return `${origin}${pathname}?first=${firstId}&second=${secondId}`;
 };
 
+const hasPrefilledInput = (input) => {
+  const { first, second } = input;
+
+  if (first.owner !== "" && first.repo !== "") {
+    return true;
+  }
+
+  if (second.owner !== "" && second.repo !== "") {
+    return true;
+  }
+
+  return false;
+}
+
 export class Comparer extends Component {
   constructor(props) {
     super(props);
@@ -29,6 +43,13 @@ export class Comparer extends Component {
 
     this.onFetcherChange = this.onFetcherChange.bind(this);
     this.onCompareRepositories = this.onCompareRepositories.bind(this);
+  }
+
+  componentDidMount() {
+    const { input } = this.state;
+    if (hasPrefilledInput(input)) {
+      this.onCompareRepositories();
+    }
   }
 
   render() {
