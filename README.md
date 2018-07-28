@@ -1,6 +1,6 @@
 # GitHub Quick Compare
 
-GitHub Quick Compare is a simple tool to compare some predifined data (Stars, Watchers, Forks, ...) of two GitHub repositories.
+GitHub Quick Compare is a simple tool to compare some predifined data (Stars, Watchers, Forks, ...) of two GitHub repositories. Check out the app at https://zlypher.github.io/github-quick-compare/
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
